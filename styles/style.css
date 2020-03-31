@@ -1,0 +1,86 @@
+body{
+    background-color: black;
+}
+
+
+/* Navbar properties */
+.navbar-light .navbar-nav .nav-link {
+    color:#020626;
+}
+.product_cat{
+    color: blanchedalmond;
+    list-style: none;
+    margin-bottom:0 ;
+    
+   
+
+}
+.cat_list{
+    padding: 8px;
+    margin-bottom:0 ;
+}
+.cat_name{
+    padding:8px;
+    background-color: white;
+   
+}
+.cat{
+    margin-right: 0;
+    margin-top: 0px;
+}
+.row{
+    margin-top:2px ;
+
+    margin-right: 0px;
+}
+.product_brand{
+    color: blanchedalmond;
+    list-style: none;
+    
+   
+
+}
+.brand_list{
+  
+    padding:8px;
+}
+.brand_name{
+    padding:8px;
+    
+    background-color: white;
+   
+}
+.shop_bar{
+    height: 44px;
+    padding-top: 10px;
+    padding-right: 10px;
+    background-color: teal;
+    width: 100%;
+}
+
+.all_pro{
+    background-color: whitesmoke;
+    min-height: 557px;
+   clear:right;
+}
+.col-md-4{
+    padding-top: 10px;
+}
+#pro_box{
+    width: 780px;
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.card{   
+    margin:10px;
+    text-align: center;
+
+}
+.img_pro{
+    border: 1px solid black;
+    height: 200px;
+    width:200px;
+}
