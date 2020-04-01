@@ -19,14 +19,13 @@ body{
     padding: 8px;
     margin-bottom:0 ;
 }
-.cat_name{
-    padding:8px;
+.headi{
     background-color: white;
-   
-}
-.cat{
-    margin-right: 0;
-    margin-top: 0px;
+    margin: 0px;
+    height: 44px;
+    margin-left: 5px;
+    padding: 5px;
+    padding-left: 31px;
 }
 .row{
     margin-top:2px ;

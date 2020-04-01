@@ -47,31 +47,20 @@ session_start();
     <div class="row">
      
 
-      <div style="padding-right:0px;" class="col-sm-9">
+      <div style="padding-right:0px;" class="col-sm-10">
         <div class="shop_bar">
-        <?php cart(); ?>
           <p class="float-right" style="color:#ded5d8">
           <span>
 						<?php
 						if(isset($_SESSION['customer_email'])){
-							echo "  Welcome:  <b>" . $_SESSION['customer_email']." </b>";
-						}
-						else{
-							echo "<b>Wecome Guest</b>";
-						}
-						
-						?>
-					</span>
-           <span>Shopping Cart -</span>
-            <span>Item :- <?php item(); ?> Total Price :- <?php total_price(); ?> - <a style="color:yellow" href="cart.php">Goto Cart</a></span>&nbsp;
-            <?php if(!isset($_SESSION['customer_email'])){
-              echo "<a href='checkout.php' style='color:white'>Login</a>    ";
-              echo "<a href='customer-register.php' style='color:white'>Register</a>";
+							echo "  Welcome:  <b>" . $_SESSION['customer_email']." </b>  ";
+
+              echo "<a href='../logout.php' style='color:black'>Logout</a>";
             }
-            else{
-              echo "<a href='logout.php' style='color:white'>Logout</a>";
+            else
+            {
+              echo "<script>window.open('../checkout.php','_self')</script>";
             }
-            
           ?>
           </p>
 
@@ -84,9 +73,17 @@ session_start();
         </div>
       </div>
 
- <div class="col-3 cat">
-        <h4 class="cat_name">Categories</h4>
-        
+      <div class="col-lg-2" style="padding-left: 0px;padding-right: 0px;">
+        <h4 class="headi">Manage Account</h4>
+        <ul class="product_cat">
+          
+                 <li><a href="">My orders</a></li>
+                 <li><a href="">Edit Account</a></li>
+                 <li><a href="">Change Password</a></li>
+                 <li><a href="">Delete Account</a></li>
+                 <li><a href="../logout.php">Logout</a></li>
+               
+        </ul>
       </div>
 
     </div>
