@@ -79,7 +79,8 @@ session_start();
            <span>Shopping Cart -</span>
             <span>Item :- <?php item(); ?> Total Price :- <?php total_price(); ?> - <a style="color:yellow" href="cart.php">Goto Cart</a></span>&nbsp;
             <?php if(!isset($_SESSION['customer_email'])){
-              echo "<a href='checkout.php' style='color:white'>Login</a>";
+              echo "<a href='checkout.php' style='color:white'>Login</a>    ";
+              echo "<a href='customer-register.php' style='color:white'>Register</a>";
             }
             else{
               echo "<a href='logout.php' style='color:white'>Logout</a>";

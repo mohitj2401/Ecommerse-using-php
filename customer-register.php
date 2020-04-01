@@ -2,6 +2,9 @@
 include("includes/db.php");
 include("functions/functions.php");
 session_start();
+if (isset($_SESSION['customer_email'])) {
+	echo "<script>window.open('cart.php','_self')</script>";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,6 +74,9 @@ session_start();
           <span><b>Wecome Guest</b></span>
            <span>Shopping Cart -</span>
             <span>Item :- <?php item(); ?> Total Price :- <?php total_price(); ?> - <a style="color:yellow" href="cart.php">Goto Cart</a></span>&nbsp;
+            <?php if(!isset($_SESSION['customer_email'])){
+              echo "<a href='checkout.php' style='color:white'>Login</a>    ";
+            }?>
         
           </p>
 
@@ -165,7 +171,7 @@ if(isset($_POST['register'])){
 	$c_address = $_POST['c_address'];
 	
 	move_uploaded_file($c_image_tmp,"customer/customer_images/$c_image");
-	$insert_c = "insert into customer values ('','$ip','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image')";
+	$insert_c = "insert into customer values ('$c_image','','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$ip')";
 	$run_c = mysqli_query($con, $insert_c);
 	$sel_cart = "select * from cart where ip_add='$ip' ";
 	$run_cart = mysqli_query($con, $sel_cart);

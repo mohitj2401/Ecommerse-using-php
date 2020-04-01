@@ -25,9 +25,6 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="all_products.php">All Products</a>
           </li>
           <li class="nav-item">
@@ -48,23 +45,9 @@ session_start();
       </div>
     </nav>
     <div class="row">
-      <div class="col-2 cat">
-        <h4 class="cat_name">Categories</h4>
-        <ul class="product_cat">
-          <?php getCat();?>
-        </ul>
+     
 
-        <h4 class="brand_name">Brands</h4>
-        <ul class="product_brand">
-
-          <?php
-  getBrand();
-?>
-        </ul>
-      </div>
-
-
-      <div style="padding-right:0px;" class="col-sm-10">
+      <div style="padding-right:0px;" class="col-sm-9">
         <div class="shop_bar">
         <?php cart(); ?>
           <p class="float-right" style="color:#ded5d8">
@@ -82,6 +65,7 @@ session_start();
            <span>Shopping Cart -</span>
             <span>Item :- <?php item(); ?> Total Price :- <?php total_price(); ?> - <a style="color:yellow" href="cart.php">Goto Cart</a></span>&nbsp;
             <?php if(!isset($_SESSION['customer_email'])){
+              echo "<a href='checkout.php' style='color:white'>Login</a>    ";
               echo "<a href='customer-register.php' style='color:white'>Register</a>";
             }
             else{
@@ -93,34 +77,17 @@ session_start();
 
 
 
-
-
         </div>
 
         <div class="all_pro">
-          
-              <br>
-            <?php 
-                $ip = getUserIP();
-                $sel_cart = "select * from cart where ip_add='$ip' ";
-                $run_cart = mysqli_query($con, $sel_cart);
-                $check_cart = mysqli_num_rows($run_cart);
-                if(isset($_SESSION['customer_email']) AND $check_cart==0){
-                  
-                  echo "<script>window.open('customer/my_account.php','_self')</script>";		
-                }
-                if(!isset($_SESSION['customer_email'])){
-					include("customer/customer_login.php");
-				}
-				else{
-					include("payment-option.php");
-				}
-            
-            ?>
-          </div>
-        
+               
+        </div>
       </div>
 
+ <div class="col-3 cat">
+        <h4 class="cat_name">Categories</h4>
+        
+      </div>
 
     </div>
 
