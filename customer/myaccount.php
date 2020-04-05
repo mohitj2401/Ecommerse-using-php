@@ -25,17 +25,17 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="all_products.php">All Products</a>
+            <a class="nav-link" href="../all_products.php">All Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="myaccount.php">My Account</a>
+            <a class="nav-link" href="../myaccount.php">My Account</a>
           </li>
          
           <li class="nav-item">
-            <a class="nav-link" href="cart.php">Shopping Cart</a>
+            <a class="nav-link" href="../cart.php">Shopping Cart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.php">Coutact Us</a>
+            <a class="nav-link" href="../contact.php">Coutact Us</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" method="get" action="results.php">
@@ -65,23 +65,50 @@ session_start();
           </p>
 
 
+         
 
         </div>
 
         <div class="all_pro">
-               
+          <h1 style="font-size:20px; text-align: center;  background-color: black;padding: 10px; color:white;">Manage Your Account Here</h1> 
+          <?php getDefault(); 
+           ?>
+           <?php
+           if(isset($_GET['my_orders'])){
+            include('my_orders.php');
+           }
+           if(isset($_GET['edit_account'])){
+            include('edit_account.php');
+           }
+           if(isset($_GET['change_pass'])){
+            include('change_pass.php');
+           }
+           if(isset($_GET['delete_account'])){
+            include('delete_account.php');
+           }
+           ?>
         </div>
+
       </div>
 
-      <div class="col-lg-2" style="padding-left: 0px;padding-right: 0px;">
+      <div class="col-sm-2" style="padding-left: 0px;padding-right: 0px;">
         <h4 class="headi">Manage Account</h4>
         <ul class="product_cat">
           
-                 <li><a href="">My orders</a></li>
-                 <li><a href="">Edit Account</a></li>
-                 <li><a href="">Change Password</a></li>
-                 <li><a href="">Delete Account</a></li>
-                 <li><a href="../logout.php">Logout</a></li>
+                
+        <?php
+           $user_session = $_SESSION['customer_email'];
+           $get_customer = "select * from customer where customer_email = '$user_session'";
+             $run_customer = mysqli_query($con,$get_customer);
+             $row_customer = mysqli_fetch_array($run_customer); 
+               $customer_image = $row_customer['customer_image'];
+               echo "<img src='customer_images/$customer_image' width='150px' height='150px'>";
+                ?>  
+              <li><a href="myaccount.php?my_orders">My Orders</a></li>
+              <li><a href="myaccount.php?edit_account">Edit Account</a></li>
+              <li><a href="myaccount.php?change_pass">Change Password</a></li>
+              <li><a href="myaccount.php?delete_account">Delete Account</a></li>
+              <li><a href="myaccount.php?logout">Logout</a></li>
                
         </ul>
       </div>

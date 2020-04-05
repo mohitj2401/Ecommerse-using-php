@@ -11,13 +11,19 @@ body{
     color: blanchedalmond;
     list-style: none;
     margin-bottom:0 ;
-    
+    padding: 10px;
+
    
 
 }
 .cat_list{
     padding: 8px;
     margin-bottom:0 ;
+}
+.product_cat li{
+    padding: 10px;
+    margin: 5px;
+
 }
 .headi{
     background-color: white;
@@ -54,13 +60,11 @@ body{
     padding-top: 10px;
     padding-right: 10px;
     background-color: teal;
-    width: 100%;
 }
 
 .all_pro{
     background-color: whitesmoke;
     min-height: 557px;
-   clear:right;
 }
 .col-md-4{
     padding-top: 10px;

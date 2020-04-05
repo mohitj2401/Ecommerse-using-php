@@ -39,7 +39,7 @@ if($qty == 0){
 $run_order = mysqli_query($con,$insert_order);
 if($run_order)  {
 	echo "<script>alert('order successfully submitted, Thanks!')</script>";
-	echo "<script>window.open('customer/my_account.php','_self')</script>";
+	echo "<script>window.open('customer/myaccount.php','_self')</script>";
 
 $empty_cart = "delete from cart where ip_add = '$ip_add'";
 $run_empty = mysqli_query($con,$empty_cart);

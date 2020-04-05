@@ -34,7 +34,7 @@ if (isset($_SESSION['customer_email'])) {
             <a class="nav-link" href="all_products.php">All Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="myaccount.php">My Account</a>
+            <a class="nav-link" href="customer/myaccount.php">My Account</a>
           </li>
           
           <li class="nav-item">

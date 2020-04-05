@@ -170,6 +170,41 @@ function getUserIP()
     return $ip;
 }
 
+//Getting defaults for customers
+function getDefault(){
+    global $con;
+
+  $c=$_SESSION['customer_email'];
+  $get_c="select * from customer  where customer_email='$c'";
+  $run=mysqli_query($con,$get_c);
+  $row=mysqli_fetch_array($run);
+  $customer_id=$row['customer_id'];
+      if(!isset($_GET['my_orders'])){
+        if(!isset($_GET['edit_account'])){
+          if(!isset($_GET['change_pass'])){
+              if(!isset($_GET['delete_account'])){
+                    $get_order="select * from customer_order where customer_id='$customer_id' AND order_status='pending'";
+                    $run_order=mysqli_query($con,$get_order);
+                    $count_orders=mysqli_num_rows($run_order);
+                    if ($count_orders>0) {
+                      echo "
+                        <div style='padding:10px'>
+                          <h1 style='color:red'>Important</h1>
+                          <h2>You Have $count_orders Pending orders</h2>
+                          <h3>Please see your orders details by clicking  <a href='myaccount.php?my_orders'>this link</a> <br> Or you can <a href='pay_offline.php'>Pay Offline</a></h3>
+                        </div>
+                      ";
+                    }
+                    else{
+                      echo "You currently don't have any order plz<a href='../index.php'> click here</a> for shoping";
+                    }
+            }
+          }
+        }
+      }
+}
+
+
 //cart functions
 
 function cart(){
